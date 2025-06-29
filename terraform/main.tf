@@ -41,5 +41,5 @@ resource "azurerm_resource_group" "rg2" {
 
 resource "azurerm_resource_group" "rg3" {
   location = var.resource_group_location
-  name     = "${random_pet.prefix.id}-rg2"
+  name     = "${random_pet.prefix.id}-rg3"
 }
