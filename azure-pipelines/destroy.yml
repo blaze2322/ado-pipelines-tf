@@ -40,6 +40,6 @@ stages:
             inputs:
               provider: 'azurerm'
               command: 'destroy'  # Run terraform destroy
-              commandOptions: '--auto-approve'  # Automatically approve the destroy action
+              #commandOptions: '--auto-approve'  # Automatically approve the destroy action
               environmentServiceNameAzureRM: $(azureServiceConnection)  # Azure service connection for authentication
               workingDirectory: 'terraform'  # Set the working directory
