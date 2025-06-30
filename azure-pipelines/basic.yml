@@ -1,7 +1,7 @@
-trigger:
-  branches:
-    include:
-      - main  # Trigger pipeline on commits to the main branch
+#trigger:
+#  branches:
+#    include:
+#      - main  # Trigger pipeline on commits to the main branch
 
 pool:
   name: 'Default'
@@ -34,20 +34,20 @@ stages:
               backendAzureRmContainerName: $(backendContainer)
               backendAzureRmKey: $(backendKey)
               command: 'init'  # Initialize Terraform
-              workingDirectory: 'terraform'  # Set the working directory
+              workingDirectory: 'tf-backends'  # Set the working directory
 
           # Validate Terraform configuration
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
               command: 'validate'  # Validate Terraform configuration
-              workingDirectory: 'terraform'
+              workingDirectory: 'tf-backends'
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
               command: 'plan'  # Run terraform plan
               environmentServiceNameAzureRM: $(azureServiceConnection)  # Azure service connection for authentication
-              workingDirectory: 'terraform'  # Set the working directory
+              workingDirectory: 'tf-backends'  # Set the working directory
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
@@ -55,4 +55,4 @@ stages:
               backendServiceArm: $(azureServiceConnection)
               commandOptions: '--auto-approve'
               environmentServiceNameAzureRM: $(azureServiceConnection)  # Azure service connection for authentication
-              workingDirectory: 'terraform'  # Set the working directory
+              workingDirectory: 'tf-backends'  # Set the working directory
