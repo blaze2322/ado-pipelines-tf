@@ -19,8 +19,8 @@ stages:
       - template: terraform-template.yml
         parameters:
           environmentName: 'dev'
-          backendRG: 'dev-hornet-rg'
-          backendSA: 'devdovetfstateblaze2322'
+          backendRG: 'dev-bj-rg'
+          backendSA: 'devbjtfstate'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
           approvalEmail: $(approvalEmail)
@@ -33,8 +33,8 @@ stages:
       - template: terraform-template.yml
         parameters:
           environmentName: 'test'
-          backendRG: 'test-dove-rg'
-          backendSA: 'testgoosetfstateblaze2'
+          backendRG: 'test-bj-rg'
+          backendSA: 'testbjtfstate'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
           approvalEmail: $(approvalEmail)
@@ -47,8 +47,8 @@ stages:
       - template: terraform-template.yml
         parameters:
           environmentName: 'prod'
-          backendRG: 'prod-javelin-rg'
-          backendSA: 'prodwildcattfstateblaze2'
+          backendRG: 'prod-bj-rg'
+          backendSA: 'prodbjtfstate'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
           approvalEmail: $(approvalEmail)
