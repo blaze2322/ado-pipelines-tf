@@ -29,13 +29,13 @@ jobs:
           backendAzureRmContainerName: 'tfstate'
           backendAzureRmKey: ${{ parameters.backendKey }}
           command: 'init'
-          workingDirectory: 'terraform'
+          workingDirectory: 'tf-backends'
 
       - task: TerraformTaskV4@4
         inputs:
           provider: 'azurerm'
           command: 'validate'
-          workingDirectory: 'terraform'
+          workingDirectory: 'tf-backends'
 
       - task: PublishPipelineArtifact@1
         inputs:
@@ -60,7 +60,7 @@ jobs:
           provider: 'azurerm'
           command: 'plan'
           environmentServiceNameAzureRM: ${{ parameters.azureServiceConnection }}
-          workingDirectory: 'terraform'
+          workingDirectory: 'tf-backends'
 
   - job: waitForValidation
     displayName: Wait for external validation
@@ -98,5 +98,5 @@ jobs:
                 backendServiceArm: ${{ parameters.azureServiceConnection }}
                 commandOptions: '--auto-approve'
                 environmentServiceNameAzureRM: ${{ parameters.azureServiceConnection }}
-                workingDirectory: 'terraform'
+                workingDirectory: 'tf-backends'
 
