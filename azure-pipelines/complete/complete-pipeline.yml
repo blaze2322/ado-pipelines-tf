@@ -1,7 +1,7 @@
-trigger:
-  branches:
-    include:
-      - main
+#trigger:
+#  branches:
+#    include:
+#      - main
 
 pool:
   name: 'Default'
@@ -9,7 +9,7 @@ pool:
 variables:
   backendKey: 'terraform.tfstate'
   azureServiceConnection: 'azurerm'
-  approvalEmail: 'intx.contact@gmail.com'
+  approvalEmail: 'blazej.jachimowicz@ab.pl'
 
 stages:
   # Dev Stage
