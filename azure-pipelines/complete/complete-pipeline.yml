@@ -20,7 +20,7 @@ stages:
         parameters:
           environmentName: 'dev'
           backendRG: 'dev-dove-rg'
-          backendSA: 'devdovetfstate'
+          backendSA: 'devdovetfstateblaze2322'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
           approvalEmail: $(approvalEmail)
@@ -34,7 +34,7 @@ stages:
         parameters:
           environmentName: 'test'
           backendRG: 'test-goose-rg'
-          backendSA: 'testgoosetfstate'
+          backendSA: 'testgoosetfstateblaze2'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
           approvalEmail: $(approvalEmail)
@@ -48,7 +48,7 @@ stages:
         parameters:
           environmentName: 'prod'
           backendRG: 'prod-wildcat-rg'
-          backendSA: 'prodwildcattfstate'
+          backendSA: 'prodwildcattfstateblaze2'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
           approvalEmail: $(approvalEmail)
