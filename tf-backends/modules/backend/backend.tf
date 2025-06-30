@@ -1,7 +1,7 @@
 # Create a resource group
 resource "azurerm_resource_group" "rg" {
   location = "uksouth"
-  name     = "${var.environment}-${random_pet.prefix.id}-rg"
+  name     = "${var.environment}-bj-rg"
 }
 
 resource "random_pet" "prefix" {
@@ -10,7 +10,7 @@ resource "random_pet" "prefix" {
 
 # Create a storage account for Terraform state files
 resource "azurerm_storage_account" "storage" {
-  name                     = "${var.environment}${random_pet.prefix.id}tfstate"
+  name                     = "${var.environment}bjtfstate"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
