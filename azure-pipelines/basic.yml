@@ -42,22 +42,12 @@ stages:
               provider: 'azurerm'
               command: 'validate'  # Validate Terraform configuration
               workingDirectory: 'terraform'
-      - job: TerraformPlan
-        steps:
-          - task: TerraformInstaller@1
-            inputs:
-              terraformVersion: 'latest'
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
               command: 'plan'  # Run terraform plan
               environmentServiceNameAzureRM: $(azureServiceConnection)  # Azure service connection for authentication
               workingDirectory: 'terraform'  # Set the working directory
-      - job: TerraformApply
-        steps:
-          - task: TerraformInstaller@1
-            inputs:
-              terraformVersion: 'latest'
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
