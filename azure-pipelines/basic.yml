@@ -51,7 +51,7 @@ stages:
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
-              command: 'destroy'  # Run terraform apply
+              command: 'apply'  # Run terraform apply
               backendServiceArm: $(azureServiceConnection)
               commandOptions: '--auto-approve'
               environmentServiceNameAzureRM: $(azureServiceConnection)  # Azure service connection for authentication
