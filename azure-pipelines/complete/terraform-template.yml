@@ -46,6 +46,10 @@ jobs:
     displayName: 'Plan: ${{ parameters.environmentName }}'
     dependsOn: TerraformInit
     steps:
+      - task: TerraformInstaller@0
+        inputs:
+          terraformVersion: '1.12.2'
+
       - task: DownloadPipelineArtifact@2
         inputs:
           artifactName: 'terraform-state-${{ parameters.environmentName }}'
@@ -64,6 +68,10 @@ jobs:
     timeoutInMinutes: 4320 # 3 days timeout
     dependsOn: TerraformPlan
     steps:
+      - task: TerraformInstaller@0
+        inputs:
+          terraformVersion: '1.12.2'
+
       - task: ManualValidation@0
         timeoutInMinutes: 1440 # 1 day timeout
         inputs:
@@ -79,6 +87,10 @@ jobs:
       runOnce:
         deploy:
           steps:
+            - task: TerraformInstaller@0
+              inputs:
+                terraformVersion: '1.12.2'
+
             - task: DownloadPipelineArtifact@2
               inputs:
                 artifactName: 'terraform-state-${{ parameters.environmentName }}'
