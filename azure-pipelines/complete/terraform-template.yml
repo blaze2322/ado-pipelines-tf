@@ -83,7 +83,9 @@ jobs:
       runOnce:
         deploy:
           steps:
-
+            - task: TerraformInstaller@0
+              inputs:
+                terraformVersion: '1.12.2'
             - task: DownloadPipelineArtifact@2
               inputs:
                 artifactName: 'terraform-state-${{ parameters.environmentName }}'
