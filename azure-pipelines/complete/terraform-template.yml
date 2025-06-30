@@ -18,7 +18,7 @@ jobs:
     steps:
       - task: TerraformInstaller@0
         inputs:
-          terraformVersion: '1.5.5'
+          terraformVersion: '1.12'
 
       - task: TerraformTaskV4@4
         inputs:
