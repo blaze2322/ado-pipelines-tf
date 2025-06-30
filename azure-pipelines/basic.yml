@@ -55,6 +55,9 @@ stages:
               workingDirectory: 'terraform'  # Set the working directory
       - job: TerraformApply
         steps:
+          - task: TerraformInstaller@1
+            inputs:
+              terraformVersion: 'latest'
           - task: TerraformTaskV4@4
             inputs:
               provider: 'azurerm'
