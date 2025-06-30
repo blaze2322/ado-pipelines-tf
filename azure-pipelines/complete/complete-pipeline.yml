@@ -19,7 +19,7 @@ stages:
       - template: terraform-template.yml
         parameters:
           environmentName: 'dev'
-          backendRG: 'dev-dove-rg'
+          backendRG: 'dev-hornet-rg'
           backendSA: 'devdovetfstateblaze2322'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
@@ -33,7 +33,7 @@ stages:
       - template: terraform-template.yml
         parameters:
           environmentName: 'test'
-          backendRG: 'test-goose-rg'
+          backendRG: 'test-dove-rg'
           backendSA: 'testgoosetfstateblaze2'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
@@ -47,7 +47,7 @@ stages:
       - template: terraform-template.yml
         parameters:
           environmentName: 'prod'
-          backendRG: 'prod-wildcat-rg'
+          backendRG: 'prod-javelin-rg'
           backendSA: 'prodwildcattfstateblaze2'
           backendKey: $(backendKey)
           azureServiceConnection: $(azureServiceConnection)
