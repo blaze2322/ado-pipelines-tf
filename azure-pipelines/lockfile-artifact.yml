@@ -55,6 +55,9 @@ stages:
     jobs:
       - job: TerraformPlan
         steps:
+          - task: TerraformInstaller@0  # Install Terraform
+            inputs:
+              terraformVersion: $(terraformVersion)
           # Download the Terraform state artifact
           - task: DownloadPipelineArtifact@2
             inputs:
@@ -75,6 +78,9 @@ stages:
       - job: TerraformApply
         steps:
           # Download the Terraform state artifact
+          - task: TerraformInstaller@0  # Install Terraform
+            inputs:
+              terraformVersion: $(terraformVersion)
           - task: DownloadPipelineArtifact@2
             inputs:
               artifactName: 'terraform-state'
